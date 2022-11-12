@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Act4
 {
+    // form to convert seconds to minutes, hours, or days
     public partial class SecondsConverter : Form
     {
         public SecondsConverter()
@@ -23,23 +24,24 @@ namespace Act4
             int numSeconds = 0;
             String input = numSecondsTextBox.Text;
 
+            // check for valid input
             if (int.TryParse(input, out numSeconds) && numSeconds > 0)
             {
-                if (numSeconds < 60)
+                if (numSeconds < 60) // output seconds if less than 60
                 {
                     resultTextBox.Text = numSeconds.ToString() + " second(s)";
                 } 
-                else if (numSeconds < 3600)
+                else if (numSeconds < 3600) // output minutes if less than 3600
                 {
                     int numMinutes = numSeconds / 60;
                     resultTextBox.Text = numMinutes.ToString() + " minute(s)";
                 }
-                else if (numSeconds < 86400)
+                else if (numSeconds < 86400) // output hours if less than 86400
                 {
                     int numHours = numSeconds / 3600;
                     resultTextBox.Text = numHours.ToString() + " hour(s)";
                 }
-                else
+                else // else output days
                 {
                     int numDays = numSeconds / 86400;
                     resultTextBox.Text = numDays.ToString() + " day(s)";
